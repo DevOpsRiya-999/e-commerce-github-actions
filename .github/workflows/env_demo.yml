@@ -2,7 +2,7 @@ name: Show env variables
 
 on: 
  workflow_dispatch:
- 
+ # env is use for you can use the env variables out side the job and you can use it inside your jobs.
 env:
  NAME: riya
  jobs:
@@ -11,5 +11,8 @@ env:
    steps:
     - name: show plane text env
       run: echo "my name is ${{env.NAME}}"
+
+    - name: show the screts
+      run: echo " the secret if the riya id ${{ secrets.RIYA_SECRET}}"
 
    
