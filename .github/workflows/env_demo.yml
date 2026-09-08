@@ -11,7 +11,6 @@ env:
    steps:
     - name: show plane text env
       run: echo "my name is ${{env.NAME}}"
-
     - name: show the screts
       run: echo " the secret if the riya id ${{ secrets.RIYA_SECRET}}"
 
