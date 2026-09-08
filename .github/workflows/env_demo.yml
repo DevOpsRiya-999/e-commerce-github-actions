@@ -1,0 +1,15 @@
+name: Show env variables
+
+on: 
+ workflow_dispatch:
+
+env:
+ NAME: riya
+ jobs:
+    show_env:
+    runs-on: ubuntu-latest 
+  steps:
+    - name: show plane text env
+      run: echo "my name is ${{env.NAME}}"
+
+   
