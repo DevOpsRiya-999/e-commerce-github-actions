@@ -6,14 +6,13 @@ name: Hello
 #when the workfolws run
 on:
  push:
-  branches: [main]
 
 #what the wworkfolows does
 jobs:
 #name of your workfolows
   greet:
   #where the workfolows run on which OS
-     runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
  # the sequence of steps the job does
     steps:
       - name: Say hello
