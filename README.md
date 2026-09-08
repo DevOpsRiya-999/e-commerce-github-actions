@@ -1,2 +1,8 @@
 # e-commerce-github-actions
-This is e-commerce github action project 
+- GitHub Actions Fundamentals:
+-What is CI/CD
+- Workflows, Jobs, Steps, Actions
+- Creating workflows
+- Secrets & Variables
+- GitHub Pages
+- Workflow Dispatch vs push
