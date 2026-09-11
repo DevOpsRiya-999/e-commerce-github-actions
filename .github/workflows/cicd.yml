@@ -1,0 +1,34 @@
+name: CICD Demo
+
+on: 
+  workflow_dispatch:
+#CI
+
+jobs:
+  code:
+    runs-on: ubuntu-latest
+    steps:
+      - name: clone the code
+        uses: actions/checkout@v7
+        
+        
+  build:
+   needs: code
+   runs-on: ubuntu-latest
+   steps:
+      - name: build the code
+        run: echo " code build"
+        
+  Test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: test the code
+        run: echo " code tests done"
+
+  deploy:
+    needs: Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: deploy the code
+        run: echo " code is deploy"     

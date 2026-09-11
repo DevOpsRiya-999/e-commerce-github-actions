@@ -1,0 +1,21 @@
+#goal : tell hello in tital when push 
+
+#start the name of the workflows
+name: Hello
+
+#when the workfolws run
+on:
+ #push:
+  workflow_dispatch:
+
+#what the wworkfolows does
+jobs:
+#name of your workfolows
+  greet:
+  #where the workfolows run on which OS
+    runs-on: ubuntu-latest
+ # the sequence of steps the job does
+    steps:
+      - name: Say hello
+        run: echo "Hello Riya"
+   
