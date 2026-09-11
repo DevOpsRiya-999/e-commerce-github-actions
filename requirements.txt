@@ -1,4 +1,7 @@
 flask
 gunicorn
 pytest
+<<<<<<< HEAD
 ruff
+=======
+>>>>>>> b42dc1f2d87440968522b7663cdec520dd9d1c47

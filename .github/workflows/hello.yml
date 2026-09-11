@@ -5,8 +5,12 @@ name: Hello
 
 #when the workfolws run
 on:
+<<<<<<< HEAD
  #push:
   workflow_dispatch:
+=======
+ push:
+>>>>>>> b42dc1f2d87440968522b7663cdec520dd9d1c47
 
 #what the wworkfolows does
 jobs:
