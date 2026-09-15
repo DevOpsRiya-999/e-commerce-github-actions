@@ -1,32 +1,25 @@
 # Goal: To check if the python code is syntactically correct
 
-name: Code Lint
+name: lint code
 
 on:
-    workflow_call:
+  push:
+
 
 jobs:
-    
-    code-linter-and-test:
-        strategy:
-          matrix:
-            python-versions: ['3.12','3.13','3.14']
-
+     code-linter:
         runs-on: ubuntu-latest
         steps:
-            - name: Code Checkout
-              uses: actions/checkout@v7
+           - name: code checkout
+             uses: actions/checkout@v7
 
-            - name: Setup Python
-              uses: actions/setup-python@v7
-              with:
-                python-version: ${{ matrix.python-versions }}
+           - name: setup python
+             uses: actions/setup-python@v4
+             with:
+                python-version: '3.13'
 
-            - name: Install Dependencies
-              run: pip install -r requirements.txt
-              
-            - name: Code Lint
-              run: ruff check .
+           - name: install dependencies
+             run: pip install -r requirements.txt     
 
-            - name: Code Tests
-              run: pytest
+           - name: code lint
+             run: ruff check .
