@@ -1,0 +1,14 @@
+# Goal: To run the Continous Integration (CI) for this project
+
+name: continous intergration
+on:
+  push:
+
+
+jobs:
+  code-linte-and-tester:
+    uses: ./.github/wokflows/lint_and_test.yml
+
+  build-and-push-docker-image:
+    needs: code-linte-and-tester
+    uses: ./.github/workflows/docker.yml  

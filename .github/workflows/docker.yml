@@ -3,7 +3,7 @@
 name: docker build and push
 
 on:
-  push:
+  workflow_call:
 
 #this workflow will build and push the docker image to dockerhub
 jobs:
@@ -30,6 +30,6 @@ jobs:
          with:
             push: true
             tags: ${{ vars.DOCKERHUB_USERNAME }}/e-commerce-python:latest
-            
+
 
     
