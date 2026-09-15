@@ -1,34 +1,23 @@
-name: CICD Demo
+# Goal: To run the Continous Integration (CI/CD) for this project
 
-on: 
-  workflow_dispatch:
-#CI
+name: continous intergration
+on:
+  push:
+
 
 jobs:
-  code:
-    runs-on: ubuntu-latest
-    steps:
-      - name: clone the code
-        uses: actions/checkout@v7
-        
-        
-  build:
-   needs: code
-   runs-on: ubuntu-latest
-   steps:
-      - name: build the code
-        run: echo " code build"
-        
-  Test:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: test the code
-        run: echo " code tests done"
+  #Code lint and test
+  code-lint:
+    uses: ./.github/workflows/lint_and_test.yml
+  #Build and push docker image
 
+  build-and-push:
+    secrets: inherit
+    needs: code-lint
+    uses: ./.github/workflows/docker.yml  
+
+    #deploy the docker image to an EC2 instance
   deploy:
-    needs: Test
-    runs-on: ubuntu-latest
-    steps:
-      - name: deploy the code
-        run: echo " code is deploy"     
+    secrets: inherit
+    needs: build-and-push
+    uses: ./.github/workflows/cd.yml
