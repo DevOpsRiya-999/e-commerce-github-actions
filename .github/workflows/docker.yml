@@ -3,7 +3,8 @@
 name: docker build and push
 
 on:
-  workflow_call:
+
+   workflow_call:
 
 #this workflow will build and push the docker image to dockerhub
 jobs:

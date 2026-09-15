@@ -6,9 +6,9 @@ on:
 
 
 jobs:
-  code-linte-and-tester:
+  code-lint:
     uses: ./.github/wokflows/lint_and_test.yml
 
-  build-and-push-docker-image:
-    needs: code-linte-and-tester
+  build-and-push:
+    needs: code-lint
     uses: ./.github/workflows/docker.yml  

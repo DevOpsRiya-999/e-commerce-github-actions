@@ -3,7 +3,8 @@
 name: lint code
 
 on:
-  workflow_call:
+
+   workflow_call:
 
 
 jobs:
