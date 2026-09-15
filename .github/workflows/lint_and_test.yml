@@ -7,7 +7,11 @@ on:
 
 
 jobs:
-     code-linter:
+     code-linter-and-tester:
+        strategy:
+          matrix:
+            python-version: ['3.12','3.13','3.14']
+
         runs-on: ubuntu-latest
         steps:
            - name: code checkout
@@ -16,7 +20,7 @@ jobs:
            - name: setup python
              uses: actions/setup-python@v4
              with:
-                python-version: '3.13'
+                python-version: ${{ matrix.python-version }}
 
            - name: install dependencies
              run: pip install -r requirements.txt     
@@ -26,4 +30,3 @@ jobs:
 
            - name: code test
              run: pytest
-               
