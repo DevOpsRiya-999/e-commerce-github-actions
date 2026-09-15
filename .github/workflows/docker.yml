@@ -9,7 +9,7 @@ on:
 #this workflow will build and push the docker image to dockerhub
 jobs:
     docker-build-and-push:
-      runs-on: ubuntu-latest
+      runs-on: self-hosted
       steps:
        - name: code checkout
          uses: actions/checkout@v7
