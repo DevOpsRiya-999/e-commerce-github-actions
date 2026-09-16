@@ -5,7 +5,7 @@ name: CD
 on:
     workflow_call:
         
-
+#code checkout, build and run the docker image on the EC2 instance
 jobs:
     deploy:
         runs-on: self-hosted
