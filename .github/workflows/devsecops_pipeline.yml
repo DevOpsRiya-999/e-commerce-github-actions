@@ -17,7 +17,12 @@ jobs:
     needs: secrets-scanning
     uses: ./.github/workflows/lint_and_test.yml
 
-
+# SAST scan for static code analysis and code related issues using sonar qube
+  sast:
+    needs: code-lint
+    uses: ./.github/workflows/sonar_scan.yml
+    secrets: inherit
+    
   #Build and push docker image
 
  #build-and-push:

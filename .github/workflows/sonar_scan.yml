@@ -1,0 +1,21 @@
+#Goal :to scan the static code  and code realted issues using sonar qube
+
+name: sonar_scan
+on:
+  workflow_call:
+
+jobs:
+   sast-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v7
+
+      - name: sonar qube scan server
+        uses: sonarsource/sonarqube-scan-action@v8.2.1
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST: ${{ secrets.SONAR_HOST }} # sonarcloud.io
+
+          
+         
