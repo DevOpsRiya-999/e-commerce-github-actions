@@ -30,10 +30,11 @@ jobs:
     
 #Build and scan docker image
 
+   # Build & Scan
   build-and-scan:
-    secrets: inherit
-    needs: dependency-scan
-    uses: ./.github/workflows/trivy_scans.yml
+        secrets: inherit
+        needs: dependency-scan
+        uses: ./.github/workflows/trivy_scans.yml
 
   #deploy the docker image to an EC2 instance
   #deploy:
