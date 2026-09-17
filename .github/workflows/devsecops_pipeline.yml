@@ -28,12 +28,12 @@ jobs:
     needs: sast
     uses: ./.github/workflows/dependency_scan.yml
     
-  #Build and push docker image
+#Build and scan docker image
 
- #build-and-push:
-    #secrets: inherit
-    #needs: code-lint
-    #uses: ./.github/workflows/docker.yml
+  build-and-scan:
+    secrets: inherit
+    needs: dependency-scan
+    uses: ./.github/workflows/trivy_scans.yml
 
   #deploy the docker image to an EC2 instance
   #deploy:
