@@ -22,6 +22,11 @@ jobs:
     needs: code-lint
     uses: ./.github/workflows/sonar_scan.yml
     secrets: inherit
+
+  #dependency-scan
+  dependency-scan:
+    needs: sast
+    uses: ./.github/workflows/dependency_scan.yml
     
   #Build and push docker image
 
