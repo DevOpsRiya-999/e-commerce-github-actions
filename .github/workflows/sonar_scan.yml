@@ -10,6 +10,9 @@ jobs:
     steps:
       - name: checkout code
         uses: actions/checkout@v7
+        with:
+          fetch-depth: 0 # Fetch all history for all branches and tags
+          #from very fist commit pull all the code
 
       - name: sonar qube scan server
         uses: sonarsource/sonarqube-scan-action@v8.2.1
