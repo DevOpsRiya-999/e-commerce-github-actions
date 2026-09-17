@@ -1,0 +1,30 @@
+# Goal is to call the workflows in the order to implement shift left
+
+name: devsecops_pipeline
+on:
+  push:
+
+jobs:
+
+  #secrets scanning for any exposed tokens, keys, or passwords
+  secrets-scanning:
+    uses: ./.github/workflows/secrets-scanning.yml
+    
+  #Code lint and test
+
+  code-lint:
+    uses: ./.github/workflows/lint_and_test.yml
+
+
+  #Build and push docker image
+
+ #build-and-push:
+    #secrets: inherit
+    #needs: code-lint
+    #uses: ./.github/workflows/docker.yml
+
+  #deploy the docker image to an EC2 instance
+  #deploy:
+    #secrets: inherit
+   # needs: build-and-push
+   # uses: ./.github/workflows/cd.yml

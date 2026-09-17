@@ -2,7 +2,7 @@
 
 name: continous intergration
 on:
-  push:
+  workflow_dispatch:
 
 
 jobs:
