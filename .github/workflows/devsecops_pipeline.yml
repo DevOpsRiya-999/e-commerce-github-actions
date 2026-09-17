@@ -9,6 +9,7 @@ jobs:
   #secrets scanning for any exposed tokens, keys, or passwords
   secrets-scanning:
     uses: ./.github/workflows/secrets-scanning.yml
+    secrets: inherit
     
   #Code lint and test
 
