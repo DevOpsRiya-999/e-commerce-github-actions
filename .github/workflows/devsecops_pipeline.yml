@@ -41,9 +41,15 @@ jobs:
         secrets: inherit
         needs: build-and-scan
         uses: ./.github/workflows/docker_push.yml
-        
+
   #deploy the docker image to an EC2 instance
-  #deploy:
-    #secrets: inherit
-   # needs: build-and-push
-   # uses: ./.github/workflows/cd.yml
+  deploy:
+    secrets: inherit
+    needs: docker-push
+    uses: ./.github/workflows/cd.yml
+
+   #DAST scan for dynamic application security testing( shift right)
+  dast:
+    secrets: inherit
+    needs: deploy
+    uses: ./.github/workflows/dast.yml
